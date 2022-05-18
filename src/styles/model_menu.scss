@@ -1,0 +1,167 @@
+.dropDownMenuWrapper {
+  position: relative;
+  width: 300px;
+  height: 80px;
+  border-radius: 8px;
+  background: white;
+  border: 2px solid steelblue;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  * {
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .dropDownMenuButton {
+    border: none;
+    font-size: inherit;
+    background: none;
+    outline: none;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 70px 0 20px;
+    margin: 0;
+    line-height: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .iconWrapper {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+
+    .bar1 {
+      width: 100%;
+      max-width: 28px;
+      height: 3px;
+      background: blue;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 9999px;
+      transform: translate(-50%, calc(-50% - 8px));
+      transition: all 0.2s ease;
+    }
+
+    .bar1--open {
+      transform: translate(-50%, -50%) rotate(45deg);
+      margin-top: 0;
+      background: red;
+    }
+
+    .bar2 {
+      width: 100%;
+      max-width: 28px;
+      height: 3px;
+      background: blue;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 9999px;
+      opacity: 1;
+      transform: translate(-50%, -50%);
+      transition: all 0.2s ease;
+    }
+
+    .bar2--open {
+      opacity: 0;
+    }
+
+    .bar3 {
+      width: 100%;
+      max-width: 28px;
+      height: 3px;
+      background: blue;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 9999px;
+      transform: translate(-50%, calc(-50% + 8px));
+      transition: all 0.2s ease;
+    }
+
+    .bar3--open {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      background: red;
+    }
+  }
+
+  .dropdownMenu {
+    position: absolute;
+    top: -27%;
+    left: 102%;
+    min-width: 300px;
+    min-height: 10px;
+    border-radius: 8px;
+    border: 2px solid steelblue;
+    background: white;
+    padding: 10px 30px;
+    animation: menu 0.3s ease forwards;
+
+    .menuArrow {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      border-left: 1px solid #eee;
+      border-top: 1px solid #eee;
+      background: white;
+      transform: rotate(45deg);
+      border-radius: 4px 0 0 0;
+    }
+
+    .option {
+      width: 100%;
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      * {
+        color: inherit;
+        text-decoration: none;
+        background: none;
+        border: 0;
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+
+    .desc {
+      opacity: 0.5;
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      margin: 3px 0 0 0;
+      cursor: default;
+    }
+  }
+
+  @keyframes menu {
+    from {
+      transform: translate3d(0, 30px, 0);
+    }
+    to {
+      transform: translate3d(0, 20px, 0);
+    }
+  }
+}
